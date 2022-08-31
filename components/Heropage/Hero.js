@@ -135,7 +135,7 @@ function Hero() {
       </StyledAccelerate>
       <StyledApproach>
         <div className="cover"></div>
-        <Image src={globe} layout="fill" className="globe" />
+        <Image src={globe} layout="fill" className="globe" alt="globe" />
         <div className="approach_text" ref={approachRef}>
           <header className="">
             Our Approach
@@ -177,14 +177,14 @@ function Hero() {
         <div className=""></div>
         {SERVICE_DEMO_ARRAY.map((item) => (
           <div className="card" key={item.title}>
-            <div className="image_container">
-              <div className="cardtext_container">
-                <header className="card_header">{item.title}</header>
-                <div className="card_text">{item.subtitle}</div>
-                <div className="button_container">
-                  <div className="card_button">
+            <div className="image_container" key={item.title}>
+              <div className="cardtext_container" key={item.title}>
+                <header className="card_header" key={item.title}>{item.title}</header>
+                <div className="card_text" key={item.title}>{item.subtitle}</div>
+                <div className="button_container" key={item.title}>
+                  <div className="card_button" key={item.title}>
                     <Link href={item.link}>
-                      <a> {item.buttonText}</a>
+                      <a key={item.title}> {item.buttonText}</a>
                     </Link>
                   </div>
                   <div className="button_icon">

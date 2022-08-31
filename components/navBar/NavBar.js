@@ -64,7 +64,7 @@ function NavBar() {
                 onMouseLeave={() => {
                   setSubMenu(false);
                 }}
-                key={items.title}
+                key={items._id}
               >
                 <div
                   onMouseEnter={() => {
@@ -74,15 +74,15 @@ function NavBar() {
                     color: `${color}`,
                   }}
                   className="service_title"
-                  key={items.title}
+                  key={items._id}
                 >
                   {items.title}
                 </div>
-                <div className={`${subMenu ? "SHOW" : "HIDE"}`}>
+                <div className={`${subMenu ? "SHOW" : "HIDE"}`}   key={items._id}>
                   {items.submenu.map((item) => (
-                    <Link href={item.path}>
+                    <Link href={item.path} key={items._id}>
                       <a
-                        key={item.subitem}
+                         key={items._id}
                         onMouseEnter={() => {
                           setSubMenu(true);
                         }}
@@ -91,7 +91,7 @@ function NavBar() {
                         }}
                       
                       >
-                        <li key={item.subitem} id="submenu_list">
+                        <li key={item._id} id="submenu_list">
                           {item.subitem}
                         </li>
                       </a>
@@ -103,9 +103,9 @@ function NavBar() {
           }
 
           return (
-            <div>
+            <div key={items.item}>
               <div key={items.item}>
-                <Link href={items.path}>
+                <Link href={items.path} key={items._id}>
                   <a
                     key={items.item}
                     className={items.className}
@@ -147,25 +147,25 @@ function NavBar() {
             {NAVLISTARRAY.map((item) => {
               if (item?.submenu) {
                 return (
-                  <div   key={item.title}>
+                  <div   key={item._id}>
                     <li
-                      key={item.title}
+                      key={item._id}
                       className="service_menu"
                       onClick={handleToggle}
                     >
                       {item.title}
                     </li>
-                    <div className="submenu">
+                    <div className="submenu"  key={item._id}>
                       {item?.submenu.map((item) => (
                         <>
                           {subMenu && (
-                            <Link href={item.path}>
+                            <Link href={item.path} key={item._id}>
                               <a
                                 id="submenu_li"
                                 onClick={handleMenu}
-                                key={item.subitem}
+                                key={item._id}
                               >
-                                <li key={item.subitem}>{item.subitem}</li>
+                                <li key={item._id}>{item.subitem}</li>
                               </a>
                             </Link>
                           )}
@@ -176,13 +176,13 @@ function NavBar() {
                 );
               }
               return (
-                <Link href={item.path}>
+                <Link href={item.path} key={item._id}>
                   <a
-                    key={item.item}
+                    key={item._id}
                     className={item.className}
                     onClick={handleClick}
                   >
-                    <li key={item.item}>{item.title}</li>
+                    <li key={item._id}>{item.title}</li>
                   </a>
                 </Link>
               );

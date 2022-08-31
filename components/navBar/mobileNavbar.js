@@ -1,12 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
-function MobileNavbar({item}) {
-  return (
-    <div>
-        {item.item}
+// function MobileNavbar({item}) {
+//   return (
+//     <div>
+//         {item.item}
      
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default MobileNavbar
+// export default MobileNavbar

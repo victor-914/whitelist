@@ -35,7 +35,7 @@ function Footer() {
         </div>
         <div className="discuss_what_next content">
           <div className="dotted_img">
-            <Image src={svg} layout="fixed" id="hero_img" />
+            <Image src={svg} layout="fixed" id="hero_img"  alt="svg"/>
           </div>
           <header>Let's Discuss What's Next</header>
           Have a project or a question? <br /> We'd love to hear from you.
