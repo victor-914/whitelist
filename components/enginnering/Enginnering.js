@@ -52,15 +52,13 @@ function EnginneringComponent() {
       <div
         className={`hero_service  ${inView ? "animate_from_right" : ""}`}
         ref={ref}
-        // className="hero_service"
       >
         <div className="img_holder">
           <div className="cover"></div>
-          <Image src={electrical} layout="fill" className="service_img" />
+          <Image src={electrical}  alt="electrical_img" layout="fill" className="service_img"  priority="true"/>
         </div>
         <div
           className={`hero_text  ${inView ? "animate_from_leftconsult" : ""}`}
-          // className="hero_text"
         >
           <header>
             ENGINEERING <span>SERVICES </span>
@@ -90,7 +88,6 @@ function EnginneringComponent() {
             className={`container ${
               ELECTRICAL_inView ? "software_CONSULTING" : ""
             }`}
-            // className="container"
           >
             {ELECTRICALARRAY.map((items) => (
               <Eachservices
@@ -109,7 +106,6 @@ function EnginneringComponent() {
           <div
             ref={CIVIL_container}
             className={`container ${CIVIL_inView ? "software_CONSULTING" : ""}`}
-            // className="container"
           >
             {MECHARRAY.map((items) => (
               <Eachservices
@@ -125,7 +121,6 @@ function EnginneringComponent() {
           <div
             ref={MECH_container}
             className={`container ${MECH_inView ? "software_CONSULTING" : ""}`}
-            // className="container"
           >
             {CIVILARRAY.map((items) => (
               <Eachservices

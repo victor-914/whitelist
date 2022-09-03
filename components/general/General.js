@@ -45,6 +45,8 @@ function EnginneringComponent() {
             src={general_contracts}
             layout="fill"
             className="service_img"
+            priority="true"
+            alt="generalContract_img"
           />
         </div>
         <div

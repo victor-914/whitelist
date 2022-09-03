@@ -62,10 +62,10 @@ function Hero() {
       <StyledHero>
         <div className="hero_text">
           <div className="asa">
-            <Image src={videoOp}  layout="fill"   id="heroLogoImg"/>
+            <Image src={videoOp} alt="heroIcon"  layout="fill"  priority="true" id="heroLogoImg"/>
           </div>
 
-          <Image src={video} id="service_demo_img" layout="fill" />
+          <Image src={video} id="service_demo_img" layout="fill" alt="heroBanner" />
           <div className="cover"></div>
           <div
             className={`page_title  ${inView ? "animate_from_right" : ""}`}
@@ -115,7 +115,7 @@ function Hero() {
       </StyledRequest>
 
       <StyledAccelerate>
-        <Image src={accelerate} layout="fill" className="img" />
+        <Image src={accelerate} layout="fill" className="img"  alt="accelerate_img"  priority="true"/>
         <div className="accelerate_container">
           <div className="accelerate_subcontainer" ref={accelerateRef}>
             <header
@@ -143,7 +143,7 @@ function Hero() {
       </StyledAccelerate>
       <StyledApproach>
         <div className="cover"></div>
-        <Image src={globe} layout="fill" className="globe" alt="globe" />
+        <Image src={globe} layout="fill" className="globe" alt="globe_img" priority="true" />
         <div className="approach_text" ref={approachRef}>
           <header className="">
             Our Approach
@@ -215,7 +215,7 @@ function Hero() {
       </StyledServiceDemo>
       <StyledDifferent>
         <div className="cover"></div>
-        <Image src={different} className="different_img" layout="fill" />
+        <Image src={different} className="different_img"  alt="different_img" layout="fill" priority="true" />
         <div className="different_text">
           <header className="header">
             HOW WE’RE DIFFERENT

@@ -48,7 +48,7 @@ function IctComponents() {
       >
         <div className="img_holder">
           <div className="cover"></div>
-          <Image src={digitalworld} layout="fill" className="service_img"  alt="ict"/>
+          <Image src={digitalworld} layout="fill" className="service_img"  alt="ict" priority="true"/>
         </div>
         <div
           className={`hero_text  ${inView ? "animate_from_leftconsult" : ""}`}
