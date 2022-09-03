@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import NAVLISTARRAY from "../../utils/NavListArray";
+import NAVLISTARRAY, { MENUNAVLISTARRAY } from "../../utils/NavListArray";
 import StyledNavBar from "./NavBar.styles";
 import Image from "next/image";
 import call from "/assets/call_icon.svg";
+import wlt from "/assets/wlt.svg";
 import { secondaryColor } from "../../utils/Colors";
 import Link from "next/link";
 import { BsXLg } from "react-icons/bs";
@@ -33,7 +34,7 @@ function NavBar() {
     return () => {
       window.removeEventListener("scroll", listenScrollEvent);
     };
-  }, []);
+  }, [navColor, color, shadow]);
 
   const handleMenu = () => {
     setMenu(!menu);
@@ -50,7 +51,9 @@ function NavBar() {
         boxShadow: `${shadow}`,
       }}
     >
-      <div className="logo_section"></div>
+      <div className="logo_section">
+        <Image src={wlt} layout="fill" position="absolute" id="wltLogoImg" />
+      </div>
 
       <div className="nav_content">
         {NAVLISTARRAY.map((items) => {
@@ -64,7 +67,7 @@ function NavBar() {
                 onMouseLeave={() => {
                   setSubMenu(false);
                 }}
-                key={items._id}
+                key={items.key1}
               >
                 <div
                   onMouseEnter={() => {
@@ -74,24 +77,23 @@ function NavBar() {
                     color: `${color}`,
                   }}
                   className="service_title"
-                  key={items._id}
+                  key={items.key2}
                 >
                   {items.title}
                 </div>
-                <div className={`${subMenu ? "SHOW" : "HIDE"}`}   key={items._id}>
+                <div className={`${subMenu ? "SHOW" : "HIDE"}`} key={items._id}>
                   {items.submenu.map((item) => (
-                    <Link href={item.path} key={items._id}>
+                    <Link href={item.path} key={item.key1}>
                       <a
-                         key={items._id}
+                        key={item.key2}
                         onMouseEnter={() => {
                           setSubMenu(true);
                         }}
                         onMouseLeave={() => {
                           setSubMenu(false);
                         }}
-                      
                       >
-                        <li key={item._id} id="submenu_list">
+                        <li key={item.key3} id="submenu_list">
                           {item.subitem}
                         </li>
                       </a>
@@ -103,17 +105,17 @@ function NavBar() {
           }
 
           return (
-            <div key={items.item}>
-              <div key={items.item}>
-                <Link href={items.path} key={items._id}>
+            <div key={items.key1}>
+              <div key={items.key2}>
+                <Link href={items.path} key={items.key3}>
                   <a
-                    key={items.item}
+                    key={items.title}
                     className={items.className}
                     style={{
                       color: `${color}`,
                     }}
                   >
-                    <li key={items.item}>{items.title}</li>
+                    <li key={items._id}>{items.title}</li>
                   </a>
                 </Link>
               </div>
@@ -143,29 +145,37 @@ function NavBar() {
           <div className="icon_holder">
             <BsXLg id="cancel" onClick={handleMenu} />
           </div>
+          <div className="logo_ection">
+              <Image
+                src={wlt}
+                layout="fill"
+                position="absolute"
+                id="wltLoImg"
+              />
+            </div>
           <div className="menu">
-            {NAVLISTARRAY.map((item) => {
+            {MENUNAVLISTARRAY.map((item) => {
               if (item?.submenu) {
                 return (
-                  <div   key={item._id}>
+                  <div key={item.key1}>
                     <li
-                      key={item._id}
+                      key={item.key2}
                       className="service_menu"
                       onClick={handleToggle}
                     >
                       {item.title}
                     </li>
-                    <div className="submenu"  key={item._id}>
+                    <div className="submenu">
                       {item?.submenu.map((item) => (
                         <>
                           {subMenu && (
-                            <Link href={item.path} key={item._id}>
+                            <Link href={item.path} key={item.key1}>
                               <a
                                 id="submenu_li"
                                 onClick={handleMenu}
-                                key={item._id}
+                                key={item.key2}
                               >
-                                <li key={item._id}>{item.subitem}</li>
+                                <li key={item.key3}>{item.subitem}</li>
                               </a>
                             </Link>
                           )}
@@ -176,13 +186,13 @@ function NavBar() {
                 );
               }
               return (
-                <Link href={item.path} key={item._id}>
+                <Link href={item.path} key={item.path}>
                   <a
-                    key={item._id}
+                    key={item.title}
                     className={item.className}
                     onClick={handleClick}
                   >
-                    <li key={item._id}>{item.title}</li>
+                    <li key={item.title}>{item.title}</li>
                   </a>
                 </Link>
               );

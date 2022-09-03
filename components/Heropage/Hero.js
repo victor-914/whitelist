@@ -1,11 +1,11 @@
 import React from "react";
 import StyledHero from "./Hero.styles";
 import Image from "next/image";
-
 import StyledServiceDemo from "./Service.styles";
 import SERVICE_DEMO_ARRAY from "../../utils/ServiceDemoArray";
 import { primaryColor, tertiaryColor } from "../../utils/Colors";
 import video from "/assets/video.gif";
+import videoOp from "/assets/videoOp.webp";
 import StyledApproach from "./OurApproach.styles";
 primaryColor;
 tertiaryColor;
@@ -14,14 +14,13 @@ import StyledAccelerate from "./Accelerate.styles";
 import accelerate from "/assets/accelerate.webp";
 import different from "/assets/different.webp";
 import StyledDifferent from "./Different.styles";
-
-
 import StyledRequest from "../request/Request.styles";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { BsChevronDoubleRight } from "react-icons/bs";
 import StyledContactUs from "./ContactUs.styles";
-
+import wlt from "/assets/wlt.svg";
+import emailJs from "emailjs-com";
 function Hero() {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -53,10 +52,19 @@ function Hero() {
     rootMargin: "-200px ",
   });
 
+   const handleSubmit = (e) => {
+       e.preventDefault();
+       emailJs.sendForm
+   }
+
   return (
     <>
       <StyledHero>
         <div className="hero_text">
+          <div className="asa">
+            <Image src={videoOp}  layout="fill"   id="heroLogoImg"/>
+          </div>
+
           <Image src={video} id="service_demo_img" layout="fill" />
           <div className="cover"></div>
           <div
@@ -177,14 +185,18 @@ function Hero() {
         <div className=""></div>
         {SERVICE_DEMO_ARRAY.map((item) => (
           <div className="card" key={item.title}>
-            <div className="image_container" key={item.title}>
-              <div className="cardtext_container" key={item.title}>
-                <header className="card_header" key={item.title}>{item.title}</header>
-                <div className="card_text" key={item.title}>{item.subtitle}</div>
-                <div className="button_container" key={item.title}>
-                  <div className="card_button" key={item.title}>
-                    <Link href={item.link}>
-                      <a key={item.title}> {item.buttonText}</a>
+            <div className="image_container" key={item.buttonText}>
+              <div className="cardtext_container" key={item.link}>
+                <header className="card_header" key={item.subtitle}>
+                  {item.title}
+                </header>
+                <div className="card_text" key={item.key1}>
+                  {item.subtitle}
+                </div>
+                <div className="button_container" key={item.key2}>
+                  <div className="card_button" key={item.key3}>
+                    <Link href={item.link} key={item.key4}>
+                      <a key={item.key5}> {item.buttonText}</a>
                     </Link>
                   </div>
                   <div className="button_icon">
@@ -217,13 +229,15 @@ function Hero() {
           >
             <div className="different_header">We're the Whole Package</div>
             <div className="different_holder">
-              Over the years, We has built an impeccable reputation of
-              integrity, credibility and professionalism among all our clients.
-              <br /> We recognize the importance of our personnel in providing a
-              customer service that goes above and beyond the norm. We believe
-              that the key to providing a first-class service lies with
-              investing in the workforce which is why we have made significant
-              contributions towards recruitment, training and development in
+              As one of the industry’s leading engineering and IT services
+              companies, Whitelist Technologies Ltd’s emphasis on quality
+              combined with an innovative and customer focused approach to the
+              provision of engineering, IT and consultancy services
+              differentiates it from other organizations operating in the
+              sector. We work with our clients from business analysis through
+              design and development of your custom software applications,
+              deployment and post deployment supports among other range of IT
+              consultancy services we provide.
             </div>
           </div>
         </div>
@@ -274,7 +288,7 @@ function Hero() {
         <div className={`form ${contactInView ? "animate_form" : ""}`}>
           <form id="form">
             <label>
-               Name:
+              Name:
               <input type="text" name="name" />
             </label>
 

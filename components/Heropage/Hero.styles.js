@@ -9,10 +9,18 @@ const StyledHero = styled.section`
   display: flex;
   flex-direction: row;
   position: relative;
-  
+   /* z-index: -1; */
   .it{
     color: ${primaryColor};
   }
+
+ 
+
+ #heroLogoImg{
+  height: 500px !important;
+  position: absolute !important;
+  transform: translateY(50px);
+ }
   .cover {
     position: absolute;
     width: 100%;
@@ -45,7 +53,7 @@ const StyledHero = styled.section`
     font-weight: 800;
     text-align: center;
     margin-bottom: 180px;
-    font-family: Helvetica, serif;
+   
     z-index: 10;
     color: white;
     display: flex;

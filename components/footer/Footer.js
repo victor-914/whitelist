@@ -45,7 +45,7 @@ function Footer() {
         </div>
       </div>
       <div className="lower_content">
-        <div className="copyright"> ©  {today.getFullYear()}  WhiteList Technology Ltd. All rights reserved. </div>
+        <div className="copyright"> ©  {today.getFullYear()}  WhiteList Technologies Ltd. All rights reserved. </div>
        
       </div>
     </Styledfooter>

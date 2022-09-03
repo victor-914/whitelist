@@ -4,11 +4,10 @@ import StyledContact from "./Contact.styles";
 import ContactNavBar from "./contactNavbar";
 
 function Contact() {
-
   return (
     <>
       <ContactNavBar />
-      <NavBar/>
+      <NavBar />
       <StyledContact>
         <div className="empty_wedge"></div>
         <div className="decorator_container">
@@ -47,7 +46,7 @@ function Contact() {
                   Company Name:
                   <input type="text" name="name" />
                 </label>
-                
+
                 <textarea placeholder="Tell us something"></textarea>
               </form>
               <div className="submit">Submit</div>
@@ -77,26 +76,15 @@ function Contact() {
                   <div className="main_address">Head Office</div>
                   <div className="sub_address">
                     10, Aimure Avenue, GRA, <br />
-                    Benin City Edo State.
+                    Benin City Edo .
                   </div>
-                  <div className="direction">Get directions</div>
+                  
+                  <div className="direction">
+                    Get directions
+                   
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="other_office address_divide">
-              <header>other offices</header>
-              <aside className="address_liner"></aside>
-              <main className="address_container">
-                <div className="office_one office">
-                  <div className="main_address">Branch Office</div>
-                  <div className="sub_address">
-                    5b Ihama Road, GRA, <br />
-                    Benin City, Edo State
-                  </div>
-                  <div className="direction">Get directions</div>
-                </div>
-                
-              </main>
             </div>
           </div>
         </div>

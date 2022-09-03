@@ -11,7 +11,7 @@ const StyledRequest = styled.section`
   flex-direction: row;
   justify-content: space-between;
   color: #fff;
-
+   z-index: 100 !important;
   .main_text {
     font-size: 40px;
     width: 50%;
@@ -20,6 +20,7 @@ const StyledRequest = styled.section`
     display: flex;
     margin-top: 30px;
     place-items: center;
+    
     letter-spacing: -2px;
   }
 
