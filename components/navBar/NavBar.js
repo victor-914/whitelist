@@ -186,13 +186,13 @@ function NavBar() {
                 );
               }
               return (
-                <Link href={item.path} key={item.path}>
+                <Link href={item.path} key={item._id}>
                   <a
-                    key={item.title}
+                    key={item.key3}
                     className={item.className}
                     onClick={handleClick}
                   >
-                    <li key={item.title}>{item.title}</li>
+                    <li key={item.key2}>{item.title}</li>
                   </a>
                 </Link>
               );
